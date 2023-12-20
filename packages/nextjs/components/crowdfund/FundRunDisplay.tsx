@@ -20,9 +20,6 @@ export const FundRunDisplay = (fundRun: FundRunDisplayProps) => {
       <div className="flex justify-between">
         <FundRunStatus status={fundRun.status} />
         <UpdateFundRunStatus fundRunId={fundRun.id} />
-
-        <ForceEndBtn fundRunId={fundRun.id} />
-        {/* ^^^ TODO: PRODTODO:: remove this and the component  */}
       </div>
 
       <label className="text-lg font-bold underline">Title</label>
