@@ -30,7 +30,7 @@ export const FundRunsTable = () => {
   } else {
     return (
       <>
-        <div className="flex justify-center gap-3 mb-3">
+        <div className="flex gap-3 mb-3">
           <span className="my-auto text-lg">LATEST FUND RUNS</span>
           <select
             className="px-4 py-2 text-xl bg-primary"
@@ -76,6 +76,11 @@ export const FundRunsTable = () => {
         </table>
 
         <div className="flex justify-end gap-3 mx-5 mt-5">
+          <button className="btn btn-sm" disabled={!pageNum} onClick={() => setPageNum(0)}>
+            <ArrowLeftIcon className="w-4 h-4" />
+            <ArrowLeftIcon className="w-4 h-4" />
+          </button>
+          <span>...</span>
           <button className="btn btn-sm" disabled={!pageNum} onClick={() => setPageNum(prev => prev - 1)}>
             <ArrowLeftIcon className="w-4 h-4" />
           </button>
