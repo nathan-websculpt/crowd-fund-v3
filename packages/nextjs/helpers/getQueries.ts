@@ -45,7 +45,7 @@ export const GQL_FUNDRUNS_For_Display = () => {
 //ALL Fund Runs
 export const GQL_FUNDRUNS_Three_Tier = () => {
   return gql`
-    query ($limit: Int!, $offset: Int!) {
+    query ($limit: Int!, $offset: Int!, $proposalsLimit: Int!, $proposalsOffset: Int!) {
       fundRuns(orderBy: fundRunId, orderDirection: desc, first: $limit, skip: $offset) {
         id
         fundRunId
@@ -57,7 +57,7 @@ export const GQL_FUNDRUNS_Three_Tier = () => {
         amountCollected
         amountWithdrawn
         status
-        proposals {
+        proposals(orderBy: proposalId, orderDirection: asc, first: $proposalsLimit, skip: $proposalsOffset) {
           id
           proposalId
           fundRunId

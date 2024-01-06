@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ProposalsSubTable } from "./ProposalsSubTable";
 import { formatEther } from "viem";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import { FundRunStatus } from "~~/components/crowdfund/FundRunStatus";
 import { TProposal } from "~~/helpers/getTypes";
 
@@ -15,6 +16,8 @@ interface FundRunRowProps {
   donated: bigint;
   withdrawn: bigint;
   proposals: TProposal[];
+  proposalsPageNum: number;
+  setProposalsPageNum: CallableFunction;
 }
 
 export const FundRunRow = (fr: FundRunRowProps) => {
@@ -55,6 +58,29 @@ export const FundRunRow = (fr: FundRunRowProps) => {
         {/* drillable, nested table */}
         <td colSpan={8}>
           <ProposalsSubTable proposals={fr?.proposals} />
+
+          <div className="flex justify-end gap-3 mx-5 mt-5">
+            <button className="btn btn-sm" disabled={!fr.proposalsPageNum} onClick={() => fr.setProposalsPageNum(0)}>
+              <ArrowLeftIcon className="w-4 h-4" />
+              <ArrowLeftIcon className="w-4 h-4" />
+            </button>
+            <span>...</span>
+            <button
+              className="btn btn-sm"
+              disabled={!fr.proposalsPageNum}
+              onClick={() => fr.setProposalsPageNum(prev => prev - 1)}
+            >
+              <ArrowLeftIcon className="w-4 h-4" />
+            </button>
+            <span className="self-center font-medium text-primary-content">Page {fr.proposalsPageNum + 1}</span>
+            <button
+              className="btn btn-sm"
+              // disabled={isNextButtonDisabled}
+              onClick={() => fr.setProposalsPageNum(prev => prev + 1)}
+            >
+              <ArrowRightIcon className="w-4 h-4" />
+            </button>
+          </div>
         </td>
       </tr>
     </>

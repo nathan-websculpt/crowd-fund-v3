@@ -7,12 +7,16 @@ import { GQL_FUNDRUNS_Three_Tier } from "~~/helpers/getQueries";
 
 export const FundRunsTable = () => {
   const [pageSize, setPageSize] = useState(25);
+  const [proposalsPageSize, setProposalsPageSize] = useState(5);
   const [pageNum, setPageNum] = useState(0);
+  const [proposalsPageNum, setProposalsPageNum] = useState(0);
 
   const { loading, error, data } = useQuery(GQL_FUNDRUNS_Three_Tier(), {
     variables: {
       limit: pageSize,
       offset: pageNum * pageSize,
+      proposalsLimit: proposalsPageSize,
+      proposalsOffset: proposalsPageNum * proposalsPageSize,
     },
     pollInterval: 10000,
   });
@@ -70,6 +74,8 @@ export const FundRunsTable = () => {
                 donated={fr?.amountCollected}
                 withdrawn={fr?.amountWithdrawn}
                 proposals={fr?.proposals}
+                proposalsPageNum={proposalsPageNum}
+                setProposalsPageNum={setProposalsPageNum}
               />
             ))}
           </tbody>
