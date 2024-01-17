@@ -1,5 +1,26 @@
 # 🚀 🌑 Multisig Crowd Funds on The Graph
 
+## Branches
+
+### Deployed Subgraph
+
+The Main branch will allow you to tinker with a local frontend that points to a deployed subgraph (already populated with data).
+
+```
+git clone https://github.com/nathan-websculpt/crowd-fund-v3.git
+cd crowd-fund-v3
+yarn install
+```
+
+### Local Subgraph
+
+The [_0_local_graph](https://github.com/nathan-websculpt/crowd-fund-v3/tree/_0_local_graph) branch will allow you to start fresh with a [local subgraph](https://github.com/nathan-websculpt/crowd-fund-v3/tree/_0_local_graph/packages/subgraph#readme).
+
+```
+git clone -b _0_local_graph https://github.com/nathan-websculpt/crowd-fund-v3.git YourProjectName
+cd YourProjectName
+yarn install
+```
 
 ### 📌 Overview
 - [Current Contract](https://sepolia.etherscan.io/address/0xbF7766D1488Fe89337174847D533052fc17B475b)
