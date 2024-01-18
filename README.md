@@ -10,6 +10,11 @@ The Main branch will allow you to tinker with a local frontend that points to a 
 git clone https://github.com/nathan-websculpt/crowd-fund-v3.git
 cd crowd-fund-v3
 yarn install
+```
+
+Then, simply start the app:
+
+```
 yarn start
 ```
 
