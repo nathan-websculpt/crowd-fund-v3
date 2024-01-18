@@ -10,6 +10,7 @@ The Main branch will allow you to tinker with a local frontend that points to a 
 git clone https://github.com/nathan-websculpt/crowd-fund-v3.git
 cd crowd-fund-v3
 yarn install
+yarn start
 ```
 
 ### Local Subgraph
@@ -21,6 +22,8 @@ git clone -b _0_local_graph https://github.com/nathan-websculpt/crowd-fund-v3.gi
 cd YourProjectName
 yarn install
 ```
+
+Click to see [Local Graph Dev Quickstart](#LocalGraphDevQuickstart) details.
 
 ### 📌 Overview
 - [Current Contract](https://sepolia.etherscan.io/address/0xbF7766D1488Fe89337174847D533052fc17B475b)
@@ -39,11 +42,7 @@ yarn install
 ## ✅  Demo 📱
 https://github.com/nathan-websculpt/crowd-fund-v3/assets/58645278/a2969b7f-65bd-4757-bd5d-3be426946afc
 
-## Testing
-
-The repo will pull-down configured for localhost, where you can run these tests.
-
-### 🧶 Yarn Tests
+## 🧶 Yarn Tests
  - 🗝️ 🔒 Single-Owner Tests
  ```
  yarn test ./test/CrowdFundTest.ts
@@ -52,7 +51,7 @@ The repo will pull-down configured for localhost, where you can run these tests.
  ```
  yarn test ./test/MultisigTest.ts
  ```
- Note that you can also test against the Contract that is deployed to Sepolia by changing the default/target network **FROM** *localhost* **TO** *sepolia* in the following (2) files: 
+ Note that you can also test against the Contract that is deployed to Sepolia by changing the default/target network **FROM** *localhost/hardhat* **TO** *sepolia* in the following (2) files: 
  - \packages\hardhat\hardhat.config.ts
  - \packages\nextjs\scaffold.config.ts
 
@@ -105,16 +104,17 @@ Before you begin, you need to install the following tools:
 - [Node (v18 LTS)](https://nodejs.org/en/download/)
 - Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
 - [Git](https://git-scm.com/downloads)
+- [Docker Desktop](https://docs.docker.com/get-docker/)
 
-## Crowd Fund Quickstart
+## Local Graph Dev Quickstart
 
 To get started with Crowd Fund, follow the steps below ([To get started with SE-2 instead, click here](#requirements)):
 
 1. Clone this repo & install dependencies
 
 ```
-git clone https://github.com/nathan-websculpt/crowd-fund-v3.git
-cd crowd-fund-v3
+git clone -b _0_local_graph https://github.com/nathan-websculpt/crowd-fund-v3.git YourProjectName
+cd YourProjectName
 yarn install
 ```
 
@@ -126,13 +126,11 @@ yarn chain
 
 This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `hardhat.config.ts`.
 
-3. On a second terminal, deploy the test contract:
+3. On a second terminal, deploy the contract:
 
 ```
 yarn deploy
 ```
-
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
 
 4. On a third terminal, start your NextJS app:
 
@@ -142,11 +140,27 @@ yarn start
 
 Visit your app on: `http://localhost:3000`. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
 
-Run smart contract test with `yarn hardhat:test`
-
 - Edit your smart contract `CrowdFund.sol` in `packages/hardhat/contracts`
 - Edit your frontend in `packages/nextjs/pages`
 - Edit your deployment scripts in `packages/hardhat/deploy`
+
+5. On a fourth terminal, spin up a local graph node ([more details about local graph dev here](https://github.com/nathan-websculpt/crowd-fund-v3/blob/_0_local_graph/packages/subgraph/README.md)) (*you will need Docker installed*):
+
+```
+yarn run-node
+```
+
+6. In another terminal, create the local subgraph (you only need to do this once):
+
+```
+yarn local-create
+```
+
+7. Ship the local subgraph:
+
+```
+yarn local-ship
+```
 
 ## 📝 Testing CrowdFund.sol
 Test script: *`packages/hardhat/test/CrowdFundTest.ts`*
