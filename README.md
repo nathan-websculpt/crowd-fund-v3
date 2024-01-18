@@ -36,7 +36,7 @@ Click to see [Local Graph Dev Quickstart](#Local-Graph-Dev-Quickstart) details.
   - [V2](https://github.com/nathan-websculpt/crowd-fund-v2) stores everything on the contract
   - V3 will store as little as possible on the contract (will now be using a subgraph)
 
-⚙️ Built with [Scaffold-ETH 2](#Contents), using NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
+⚙️ Built with [Scaffold-ETH 2](#-scaffold-eth-2), using NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
 
 
 ## ✅  Demo 📱
