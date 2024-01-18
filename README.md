@@ -23,7 +23,7 @@ cd YourProjectName
 yarn install
 ```
 
-Click to see [Local Graph Dev Quickstart](#LocalGraphDevQuickstart) details.
+Click to see [Local Graph Dev Quickstart](#Local-Graph-Dev-Quickstart) details.
 
 ### 📌 Overview
 - [Current Contract](https://sepolia.etherscan.io/address/0xbF7766D1488Fe89337174847D533052fc17B475b)
