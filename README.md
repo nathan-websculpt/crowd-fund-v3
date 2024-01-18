@@ -108,7 +108,7 @@ Before you begin, you need to install the following tools:
 
 ## Local Graph Dev Quickstart
 
-To get started with Crowd Fund, follow the steps below ([To get started with SE-2 instead, click here](#requirements)):
+To get started with Crowd Fund, follow the steps below ([To get started with SE-2 instead, click here](#-scaffold-eth-2)):
 
 1. Clone this repo & install dependencies
 
